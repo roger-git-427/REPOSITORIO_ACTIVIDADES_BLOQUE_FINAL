@@ -3,7 +3,7 @@ import json
 import requests
 
 #input_data = input("Introduce path for data")
-data = pd.read_csv("prueba.csv").drop(["Unnamed: 0"], axis=1)#(input_data)
+data = pd.read_csv("prueba.csv").drop(["Unnamed: 0", "Bankrupt?"], axis=1)
 data_dict = data.to_dict(orient='list')
 
 #Formateado para la API:
