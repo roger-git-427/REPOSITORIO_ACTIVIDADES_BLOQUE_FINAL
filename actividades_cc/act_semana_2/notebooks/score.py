@@ -1,5 +1,3 @@
-
-
 import json 
 import joblib
 import pandas as pd
@@ -19,7 +17,7 @@ def embbed(d):
             'Persistent EPS in the Last Four Seasons',
             'Retained Earnings to Total Assets',
             'Net profit before tax/Paid-in capital',
-            'Per Share Net profit before tax (Yuan ¥)',
+            'Per Share Net profit before tax (Yuan �)',
             'Current Liability to Assets', 'Working Capital to Total Assets',
             "Net Income to Stockholder's Equity", 'Borrowing dependency',
             'Current Liability to Current Assets', 'Liability to Equity',
@@ -43,12 +41,10 @@ def init():
 
     try:
         print("[INFO] Loading model and scaler...")
-        # Mostrar versiones de numpy y sklearn
         print(f"[INFO] NumPy version: {np.__version__}")
         print(f"[INFO] Scikit-learn version: {sklearn.__version__}")
 
-
-        # Obtener la ruta de la última versión del modelo y scaler
+        # Reemplaza 'model_name_here' por el nombre real de tu modelo registrado en Azure ML.
         model_path = Model.get_model_path('model')
         scaler_path = Model.get_model_path('model_scaler')
 
@@ -60,16 +56,15 @@ def init():
         scaler = joblib.load(scaler_path)
         print(f"[INFO] Loaded scaler from {scaler_path}!!")
 
-
         print("[INFO] Model and scaler loaded successfully.")
 
     except Exception as e:
         print(f"[ERROR] Failed to load model or scaler: {e}")
         traceback.print_exc()
-        model, scaler = None, None  # Asegurar que sean None si falla la carga
+        model, scaler = None, None  # Aseguramos que sean None si falla la carga
 
 def run(raw_data):
-    global model, scaler  # Asegurar que estamos usando las variables globales
+    global model, scaler
 
     try:
         if model is None or scaler is None:
@@ -113,7 +108,3 @@ def run(raw_data):
 
     print(error_msg)
     return json.dumps({"error": error_msg})
-
-
-
-
