@@ -1,8 +1,11 @@
 
+
 import json 
 import joblib
 import pandas as pd
+import numpy as np
 import traceback
+import sklearn
 from azureml.core.model import Model
 
 def embbed(d):
@@ -36,25 +39,34 @@ def embbed(d):
         return None
 
 def init():
-    global model
-    global scaler
+    global model, scaler
 
     try:
         print("[INFO] Loading model and scaler...")
+        # Mostrar versiones de numpy y sklearn
+        print(f"[INFO] NumPy version: {np.__version__}")
+        print(f"[INFO] Scikit-learn version: {sklearn.__version__}")
 
+
+        # Obtener la ruta de la última versión del modelo y scaler
         model_path = Model.get_model_path('model')
-        model = joblib.load(model_path)
-        print("[INFO] Model loaded successfully.")
-
         scaler_path = Model.get_model_path('model_scaler')
+
+        print(f"[INFO] Loading model from {model_path}")
+        model = joblib.load(model_path)
+        print(f"[INFO] Loaded model from {model_path}!!")
+
+        print(f"[INFO] Loading scaler from {scaler_path}")
         scaler = joblib.load(scaler_path)
-        print("[INFO] Scaler loaded successfully.")
+        print(f"[INFO] Loaded scaler from {scaler_path}!!")
+
+
+        print("[INFO] Model and scaler loaded successfully.")
 
     except Exception as e:
         print(f"[ERROR] Failed to load model or scaler: {e}")
         traceback.print_exc()
-        model = None
-        scaler = None  # Si falla, evitamos que cause errores en `run()`
+        model, scaler = None, None  # Asegurar que sean None si falla la carga
 
 def run(raw_data):
     global model, scaler  # Asegurar que estamos usando las variables globales
@@ -80,8 +92,9 @@ def run(raw_data):
         if embedded_data is None:
             raise ValueError("[ERROR] Data embedding failed due to missing columns.")
 
-        if scaler is None:
-            raise RuntimeError("[ERROR] Scaler was not loaded properly in init().")
+        # Verificar si hay valores NaN antes de transformar
+        if embedded_data.isnull().values.any():
+            raise ValueError("[ERROR] Input data contains NaN values. Please clean your input.")
 
         scaled_data = scaler.transform(embedded_data)
         print("[INFO] Scaled data shape:", scaled_data.shape)
@@ -100,6 +113,7 @@ def run(raw_data):
 
     print(error_msg)
     return json.dumps({"error": error_msg})
+
 
 
 
