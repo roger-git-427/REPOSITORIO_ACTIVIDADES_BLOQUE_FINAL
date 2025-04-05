@@ -1,4 +1,5 @@
 ```markdown
+```
 
 # (CLOUD COMPUTING) Actividad de la semana 2
 
@@ -11,9 +12,6 @@
 
 2. **Crear y Activar un Entorno Virtual** 
    Para crear un ambiente virtual y activarlo debes correr los siguientes comandos en tu terminal:
-   
-   ```bash
-   ```
 
    #### En Linux/Mac/Windows
    ```bash
