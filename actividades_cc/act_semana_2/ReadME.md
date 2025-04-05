@@ -5,7 +5,7 @@
 
 ## Requisitos Previos 
 
-- **Contar con el URI del servicio** (Actualizar el archivo `uri.json` que no tiene un URI válido)
+- **Contar con el URI del servicio** (Este URI no se encuentra en el repositorio por motivos de seguridad y confidencialidad)
 
 ## Pasos de Instalación
 
