@@ -5,7 +5,7 @@
 
 ## Requisitos Previos 
 
-- **Contar con el URI** (Actualizar el archivo `uri.json` que no tiene un URI valido)
+- **Contar con el URI** (Actualizar el archivo `uri.json` que no tiene un URI válido)
 
 ## Pasos de Instalación
 
