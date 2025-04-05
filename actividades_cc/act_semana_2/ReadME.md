@@ -5,14 +5,16 @@
 
 ## Requisitos Previos 
 
-- **Contar con el URI** (Actualizar el archivo `uri.json` que no tiene un URI válido)
+- **Contar con el URL del servicio** (Actualizar el archivo `uri.json` que no tiene un URL válido)
 
 ## Pasos de Instalación
 
-1. **Clonar o Forkear el Repositorio**  
+1. **Clonar o Forkear el Repositorio**
+   
    Clona o haz un fork de este repositorio para tenerlo en tu propio entorno local.
 
-2. **Crear y Activar un Entorno Virtual** 
+3. **Crear y Activar un Entorno Virtual**
+   
    Para crear un ambiente virtual y activarlo debes correr los siguientes comandos en tu terminal:
 
    #### En Linux/Mac/Windows
@@ -30,12 +32,12 @@
    .venv\Scripts\activate
    ```
 
-3. **Instalar Dependencias**  
+4. **Instalar Dependencias**  
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Archivo `API.py`**  
+5. **Archivo `API.py`**  
    - Antes de ejecutar `API.py`, edita o reemplaza el archivo `prueba.csv` con los datos que quieras enviar al modelo.
    - Ejecuta:
      ```bash
