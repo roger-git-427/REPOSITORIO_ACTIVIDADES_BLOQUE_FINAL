@@ -1,12 +1,11 @@
 
 # (CLOUD COMPUTING) Actividad de la semana 2
 
-# Inferencia y Consumo de la API
+# Inferencia y Consumo 
 
 ## Requisitos Previos 
 
-- **Contar con el URI** (Tener bien configurado el archivo`uri.json`)
-
+- **Contar con el URI** (Actualizar el archivo `uri.json` que no tiene un URI valido)
 
 ## Pasos de Instalación
 
