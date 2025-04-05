@@ -5,7 +5,7 @@
 
 ## Requisitos Previos 
 
-- **Contar con el URL del servicio** (Actualizar el archivo `uri.json` que no tiene un URL válido)
+- **Contar con el URI del servicio** (Actualizar el archivo `uri.json` que no tiene un URI válido)
 
 ## Pasos de Instalación
 
@@ -45,7 +45,7 @@
      ```
    - Este script:
      - Lee el archivo `prueba.csv`.
-     - Carga la URI del servicio desde `uri.json`.
+     - Carga el URI del servicio desde `uri.json`.
      - Envía los datos al endpoint de Azure.
      - Imprime las predicciones.
 
