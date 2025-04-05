@@ -1,9 +1,12 @@
-```markdown
-```
 
 # (CLOUD COMPUTING) Actividad de la semana 2
 
 # Inferencia y Consumo de la API
+
+## Requisitos Previos 
+
+- **Contar con el URI** (Tener bien configurado el archivo`uri.json`)
+
 
 ## Pasos de Instalación
 
@@ -111,4 +114,3 @@ Existen **dos formas** de realizar el despliegue:
 - **Sistema Operativo:** MacOS Classic, OS: System 1 (1984)
 - **Memoria RAM:** 256 kb
 - **Ancho de Banda:** Dos latas conectadas por una cuerda de fibra óptica
-```
