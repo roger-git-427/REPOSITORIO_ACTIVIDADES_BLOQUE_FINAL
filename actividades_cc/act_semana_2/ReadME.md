@@ -10,11 +10,17 @@
 2. **Crear y Activar un Entorno Virtual**  
    ```bash
    python -m venv .venv
+   ```
    # En Linux/Mac
+   ```bash
    . .venv/bin/activate
+   ```
    # En Windows
+
+   ```bash
    .venv\Scripts\activate
    ```
+
 
 3. **Actualizar pip a la Versión 24.0 (o superior)**  
    ```bash
