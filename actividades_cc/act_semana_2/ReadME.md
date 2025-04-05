@@ -1,5 +1,7 @@
 ```markdown
 
+# (CLOUD COMPUTING) Actividad de la semana 2
+
 # Inferencia y Consumo de la API
 
 ## Pasos de Instalación
@@ -18,7 +20,7 @@
    ```bash
    . .venv/bin/activate
    ```
-   
+
    #### En Windows
    ```bash
    .venv\Scripts\activate
