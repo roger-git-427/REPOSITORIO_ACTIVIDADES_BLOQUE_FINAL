@@ -1,3 +1,4 @@
+
 import json 
 import joblib
 import pandas as pd
@@ -8,23 +9,7 @@ from azureml.core.model import Model
 
 def embbed(d):
     try:
-        d.columns = d.columns.str.strip()  # Limpiar nombres de columnas
-        required_columns = [
-            'Net Income to Total Assets', 'ROA(A) before interest and % after tax',
-            'ROA(B) before interest and depreciation after tax',
-            'ROA(C) before interest and depreciation before interest',
-            'Net worth/Assets', 'Debt ratio %',
-            'Persistent EPS in the Last Four Seasons',
-            'Retained Earnings to Total Assets',
-            'Net profit before tax/Paid-in capital',
-            'Per Share Net profit before tax (Yuan �)',
-            'Current Liability to Assets', 'Working Capital to Total Assets',
-            "Net Income to Stockholder's Equity", 'Borrowing dependency',
-            'Current Liability to Current Assets', 'Liability to Equity',
-            'Net Value Per Share (A)', 'Net Value Per Share (B)',
-            'Net Value Per Share (C)', 'Current Liability to Equity'
-        ]
-
+        required_columns =  [' Net Income to Total Assets', ' ROA(A) before interest and % after tax', ' ROA(B) before interest and depreciation after tax']
         missing_columns = [col for col in required_columns if col not in d.columns]
         if missing_columns:
             raise KeyError(f"Missing columns: {missing_columns}")
@@ -45,8 +30,8 @@ def init():
         print(f"[INFO] Scikit-learn version: {sklearn.__version__}")
 
         # Reemplaza 'model_name_here' por el nombre real de tu modelo registrado en Azure ML.
-        model_path = Model.get_model_path('model')
-        scaler_path = Model.get_model_path('model_scaler')
+        model_path = Model.get_model_path('model3')
+        scaler_path = Model.get_model_path('model_scaler3')
 
         print(f"[INFO] Loading model from {model_path}")
         model = joblib.load(model_path)
@@ -108,3 +93,5 @@ def run(raw_data):
 
     print(error_msg)
     return json.dumps({"error": error_msg})
+
+

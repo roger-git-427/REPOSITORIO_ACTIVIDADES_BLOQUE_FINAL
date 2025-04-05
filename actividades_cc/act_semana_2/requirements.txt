@@ -1,0 +1,10 @@
+pip == 24
+
+matplotlib
+numpy == 1.23.5
+pandas
+
+scikit-learn==1.4.2
+joblib
+
+azureml-sdk
