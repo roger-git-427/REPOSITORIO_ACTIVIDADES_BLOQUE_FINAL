@@ -10,6 +10,10 @@
    Clona o haz un fork de este repositorio para tenerlo en tu propio entorno local.
 
 2. **Crear y Activar un Entorno Virtual** 
+   Para crear un ambiente virtual y activarlo debes correr los siguientes comandos en tu terminal:
+   
+   ```bash
+   ```
 
    #### En Linux/Mac/Windows
    ```bash
