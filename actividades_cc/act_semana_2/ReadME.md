@@ -7,16 +7,19 @@
 1. **Clonar o Forkear el Repositorio**  
    Clona o haz un fork de este repositorio para tenerlo en tu propio entorno local.
 
-2. **Crear y Activar un Entorno Virtual**  
+2. **Crear y Activar un Entorno Virtual** 
+
+   #### En Linux/Mac/Windows
    ```bash
    python -m venv .venv
    ```
+
    #### En Linux/Mac
    ```bash
    . .venv/bin/activate
    ```
+   
    #### En Windows
-
    ```bash
    .venv\Scripts\activate
    ```
