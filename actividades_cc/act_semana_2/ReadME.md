@@ -30,18 +30,12 @@
    .venv\Scripts\activate
    ```
 
-
-3. **Actualizar pip a la Versión 24.0 (o superior)**  
-   ```bash
-   pip install --upgrade pip==24.0
-   ```
-
-4. **Instalar Dependencias**  
+3. **Instalar Dependencias**  
    ```bash
    pip install -r requirements.txt
    ```
 
-1. **Archivo `API.py`**  
+4. **Archivo `API.py`**  
    - Antes de ejecutar `API.py`, edita o reemplaza el archivo `prueba.csv` con los datos que quieras enviar al modelo.
    - Ejecuta:
      ```bash
