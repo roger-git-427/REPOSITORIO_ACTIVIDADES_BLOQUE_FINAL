@@ -42,6 +42,7 @@ El objetivo es mostrar cómo:
 | **Azure CLI**                | ≥ 2.60 |
 | **Extensión Azure ML**       | `az extension add -n ml` |
 | **Bibliotecas**              | ver `requirements.txt` |
+| **URI**                      | {"URI": ["URL"]}|
 | **Suscripción de Azure**     | rol _Contributor_ sobre el _Resource Group_ de destino |
 | **Base de datos Azure SQL**  | Acceso de lectura y cadena de conexión válidos |
 
