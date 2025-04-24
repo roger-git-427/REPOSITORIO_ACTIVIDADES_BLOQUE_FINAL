@@ -1,4 +1,3 @@
-scorepy = """
 import json 
 import joblib
 import pandas as pd
@@ -32,10 +31,7 @@ def init():
         print(f"[INFO] NumPy version: {np.__version__}")
         print(f"[INFO] Scikit-learn version: {sklearn.__version__}")
 
-        # Reemplaza 'model_name_here' por el nombre real de tu modelo registrado en Azure ML.
-        model_dir  = Model.get_model_path('model2')          # ← apunta al directorio
-        model_path = os.path.join(model_dir, 'RandomForest_BestModel.pkl')    # ← apunta al fichero
-        
+        model_path  = Model.get_model_path('model2')        
         print(f"[INFO] Loading model from {model_path}")
         model = joblib.load(model_path)
         print(f"[INFO] Loaded model from {model_path}!!")
@@ -45,7 +41,7 @@ def init():
     except Exception as e:
         print(f"[ERROR] Failed to load model: {e}")
         traceback.print_exc()
-        model = None  # Aseguramos que sean None si falla la carga
+        model = None  
 
 def run(raw_data):
     global model
@@ -89,4 +85,3 @@ def run(raw_data):
 
     print(error_msg)
     return json.dumps({"error": error_msg})
-"""
