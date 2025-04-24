@@ -25,38 +25,34 @@ def embbed(d):
         return None
 
 def init():
-    global model, scaler
+    global model
 
     try:
-        print("[INFO] Loading model and scaler...")
+        print("[INFO] Loading model...")
         print(f"[INFO] NumPy version: {np.__version__}")
         print(f"[INFO] Scikit-learn version: {sklearn.__version__}")
 
         # Reemplaza 'model_name_here' por el nombre real de tu modelo registrado en Azure ML.
-        model_path = Model.get_model_path('model')
-        scaler_path = Model.get_model_path('model_scaler')
-
+        model_dir  = Model.get_model_path('model2')          # ← apunta al directorio
+        model_path = os.path.join(model_dir, 'RandomForest_BestModel.pkl')    # ← apunta al fichero
+        
         print(f"[INFO] Loading model from {model_path}")
         model = joblib.load(model_path)
         print(f"[INFO] Loaded model from {model_path}!!")
 
-        print(f"[INFO] Loading scaler from {scaler_path}")
-        scaler = joblib.load(scaler_path)
-        print(f"[INFO] Loaded scaler from {scaler_path}!!")
-
-        print("[INFO] Model and scaler loaded successfully.")
+        print("[INFO] Model loaded successfully.")
 
     except Exception as e:
-        print(f"[ERROR] Failed to load model or scaler: {e}")
+        print(f"[ERROR] Failed to load model: {e}")
         traceback.print_exc()
-        model, scaler = None, None  # Aseguramos que sean None si falla la carga
+        model = None  # Aseguramos que sean None si falla la carga
 
 def run(raw_data):
-    global model, scaler
+    global model
 
     try:
-        if model is None or scaler is None:
-            raise RuntimeError("[ERROR] Model or scaler not initialized. Check logs for errors.")
+        if model is None:
+            raise RuntimeError("[ERROR] Model not initialized. Check logs for errors.")
 
         data_dict = json.loads(raw_data)
         if "data" not in data_dict:
@@ -79,10 +75,7 @@ def run(raw_data):
         if embedded_data.isnull().values.any():
             raise ValueError("[ERROR] Input data contains NaN values. Please clean your input.")
 
-        scaled_data = scaler.transform(embedded_data)
-        print("[INFO] Scaled data shape:", scaled_data.shape)
-
-        result_finals = model.predict(scaled_data)
+        result_finals = model.predict(embedded_data)
         print("[INFO] Model prediction output:", result_finals)
 
         return json.dumps({"predictions": result_finals.tolist()})
